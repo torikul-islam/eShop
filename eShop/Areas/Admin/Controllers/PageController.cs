@@ -18,20 +18,8 @@ namespace eShop.Areas.Admin.Controllers
         // GET: Admin/Page
         public ActionResult Index()
         {
-            return View(db.Pages.OrderByDescending(o =>o.Id).ToList());
+            return View(db.Pages.ToList());
         }
-
-        public ActionResult AddPage()
-        {
-            return View();
-        }  
-
-
-
-
-
-
-
 
         // GET: Admin/Page/Details/5
         public ActionResult Details(int? id)
@@ -48,21 +36,23 @@ namespace eShop.Areas.Admin.Controllers
             return View(page);
         }
 
-        // GET: Admin/Page/Create
-        public ActionResult Create()
+        
+        public ActionResult AddPage()
         {
             return View();
         }
 
-        // POST: Admin/Page/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+       
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Title,Slug,Body,Sorting,HasSidebar")] Page page)
+        public ActionResult AddPage(Page page)
         {
             if (ModelState.IsValid)
             {
+                if(db.Pages.Any(t =>t.Title ==page.Title || db.Pages.Any(s =>s.Slug == page.Slug)))
+                {
+                    ModelState.AddModelError("", "The Tile or Slug Already exits.");
+                }
                 db.Pages.Add(page);
                 db.SaveChanges();
                 return RedirectToAction("Index");
