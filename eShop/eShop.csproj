@@ -194,7 +194,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\DashboardController.cs" />
-    <Compile Include="Areas\Admin\Controllers\PagesController.cs" />
+    <Compile Include="Areas\Admin\Controllers\PageController.cs" />
     <Compile Include="Areas\Admin\Models\Page.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -202,6 +202,10 @@
     <Compile Include="Migrations\201808151150401_InitialModel.cs" />
     <Compile Include="Migrations\201808151150401_InitialModel.Designer.cs">
       <DependentUpon>201808151150401_InitialModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201808151623413_AddBoolToPage.cs" />
+    <Compile Include="Migrations\201808151623413_AddBoolToPage.Designer.cs">
+      <DependentUpon>201808151623413_AddBoolToPage.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Data\DefaultConnection.cs" />
@@ -230,6 +234,13 @@
     <Content Include="Areas\Admin\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Admin\Views\Dashboard\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Pages\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Page\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Page\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Page\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Page\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Page\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Page\AddPage.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -256,7 +267,6 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Areas\Admin\Views\Pages\" />
     <Folder Include="Controllers\" />
     <Folder Include="Models\ViewModel\" />
   </ItemGroup>
@@ -276,6 +286,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201808151150401_InitialModel.resx">
       <DependentUpon>201808151150401_InitialModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808151623413_AddBoolToPage.resx">
+      <DependentUpon>201808151623413_AddBoolToPage.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

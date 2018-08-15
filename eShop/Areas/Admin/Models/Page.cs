@@ -12,7 +12,7 @@ namespace eShop.Areas.Admin.Models
         public string Slug { get; set; }
         public string Body { get; set; }
         public int Sorting { get; set; }
-        public int HasSidebar { get; set; }
+        public bool HasSidebar { get; set; }
 
     }
 }

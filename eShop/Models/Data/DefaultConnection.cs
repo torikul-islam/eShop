@@ -10,5 +10,6 @@ namespace eShop.Models.Data
     public class DefaultConnection : DbContext 
     {
         public DbSet<Page> Pages { get; set; }
+        
     }
 }
