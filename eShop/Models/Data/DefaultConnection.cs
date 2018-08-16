@@ -11,6 +11,7 @@ namespace eShop.Models.Data
     {
         public DbSet<Page> Pages { get; set; }
         public DbSet<Sidebar> Sidebars { get; set; }
+        public DbSet<Shop> Shops { get; set; }
 
     }
 }
