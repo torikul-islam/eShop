@@ -242,7 +242,6 @@
     <Content Include="Areas\Admin\Views\Dashboard\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Pages\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Page\AddPage.cshtml" />
-    <Content Include="Areas\Admin\Views\Page\DeletePage.cshtml" />
     <Content Include="Areas\Admin\Views\Page\PageDetails.cshtml" />
     <Content Include="Areas\Admin\Views\Page\EditPage.cshtml" />
     <Content Include="Areas\Admin\Views\Page\Index.cshtml" />

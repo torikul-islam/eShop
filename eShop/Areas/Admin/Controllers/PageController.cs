@@ -83,7 +83,7 @@ namespace eShop.Areas.Admin.Controllers
         
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult EditPage( Page page)
+        public ActionResult EditPage(int id, Page page)
         {
             if (db.Pages.Any(t => t.Title == page.Title))
             {
@@ -93,12 +93,14 @@ namespace eShop.Areas.Admin.Controllers
             {
                 ModelState.AddModelError("", "The Slug is already exits.");
             }
+
             if (ModelState.IsValid)
             {
                 db.Entry(page).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            
             return View(page);
         }
 
