@@ -13,7 +13,7 @@ namespace eShop.Areas.Admin.Controllers
 {
     public class PageController : Controller
     {
-        private DefaultConnection db = new DefaultConnection();
+        protected readonly DefaultConnection db = new DefaultConnection();
 
         // GET: Admin/Page
         public ActionResult Index()
@@ -22,7 +22,7 @@ namespace eShop.Areas.Admin.Controllers
         }
 
         // GET: Admin/Page/Details/5
-        public ActionResult Details(int? id)
+        public ActionResult PageDetails(int? id)
         {
             if (id == null)
             {
@@ -42,27 +42,32 @@ namespace eShop.Areas.Admin.Controllers
             return View();
         }
 
-       
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult AddPage(Page page)
         {
-            if (ModelState.IsValid)
+            if (db.Pages.Any(t => t.Title == page.Title))
             {
-                if(db.Pages.Any(t =>t.Title ==page.Title || db.Pages.Any(s =>s.Slug == page.Slug)))
-                {
-                    ModelState.AddModelError("", "The Tile or Slug Already exits.");
-                }
-                db.Pages.Add(page);
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                ModelState.AddModelError("", "The Title is already exits.");
             }
+            if (db.Pages.Any(t => t.Slug == page.Slug))
+            {
+                ModelState.AddModelError("", "The Slug is already exits.");
+            }
+
+            if (ModelState.IsValid)
+                {
+                    db.Pages.Add(page);
+                    db.SaveChanges();
+                    return RedirectToAction("Index","Page");
+                }
+           
 
             return View(page);
         }
 
         // GET: Admin/Page/Edit/5
-        public ActionResult Edit(int? id)
+        public ActionResult EditPage(int? id)
         {
             if (id == null)
             {
@@ -75,14 +80,19 @@ namespace eShop.Areas.Admin.Controllers
             }
             return View(page);
         }
-
-        // POST: Admin/Page/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Title,Slug,Body,Sorting,HasSidebar")] Page page)
+        public ActionResult EditPage( Page page)
         {
+            if (db.Pages.Any(t => t.Title == page.Title))
+            {
+                ModelState.AddModelError("", "The Title is already exits.");
+            }
+            if (db.Pages.Any(t => t.Slug == page.Slug))
+            {
+                ModelState.AddModelError("", "The Slug is already exits.");
+            }
             if (ModelState.IsValid)
             {
                 db.Entry(page).State = EntityState.Modified;
@@ -93,18 +103,17 @@ namespace eShop.Areas.Admin.Controllers
         }
 
         // GET: Admin/Page/Delete/5
-        public ActionResult Delete(int? id)
+        public ActionResult DeletePage(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Page page = db.Pages.Find(id);
-            if (page == null)
-            {
-                return HttpNotFound();
-            }
-            return View(page);
+            db.Pages.Remove(page);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+            
         }
 
         // POST: Admin/Page/Delete/5
@@ -128,3 +137,4 @@ namespace eShop.Areas.Admin.Controllers
         }
     }
 }
+

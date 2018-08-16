@@ -30,29 +30,44 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Title)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Slug)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Body)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Sorting)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.HasSidebar)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Slug)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Body)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Sorting)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HasSidebar)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Id })
+                @Html.ActionLink("Details", "Details", new { id = item.Id })
+                @Html.ActionLink("Delete", "DeletePage", new { id = item.Id }, new {@class="delete" })
+            </td>
+        </tr>
+    }
 
 </table>
+@section scripts
+{
+    <script>
+        $(function () {
+            $(".delete").click(function () {
+                if (confirm("Are you sure want to delete ?"))
+                    return true;
+                else {
+                    return false;
+                }
+            });
+        });
+    </script>
+}
