@@ -198,6 +198,7 @@
     <Compile Include="Areas\Admin\Controllers\DashboardController.cs" />
     <Compile Include="Areas\Admin\Controllers\PageController.cs" />
     <Compile Include="Areas\Admin\Models\Page.cs" />
+    <Compile Include="Areas\Admin\Models\Sidebar.cs" />
     <Compile Include="Areas\Admin\Models\TitleSlugExistsOrNot.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -217,6 +218,10 @@
     <Compile Include="Migrations\201808151958027_AddDataAnnotationRequired.cs" />
     <Compile Include="Migrations\201808151958027_AddDataAnnotationRequired.Designer.cs">
       <DependentUpon>201808151958027_AddDataAnnotationRequired.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201808161125495_AddSidebarToModel.cs" />
+    <Compile Include="Migrations\201808161125495_AddSidebarToModel.Designer.cs">
+      <DependentUpon>201808161125495_AddSidebarToModel.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Data\DefaultConnection.cs" />
@@ -331,6 +336,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201808151958027_AddDataAnnotationRequired.resx">
       <DependentUpon>201808151958027_AddDataAnnotationRequired.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808161125495_AddSidebarToModel.resx">
+      <DependentUpon>201808161125495_AddSidebarToModel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
