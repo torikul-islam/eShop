@@ -85,15 +85,7 @@ namespace eShop.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult EditPage(int id, Page page)
         {
-            if (db.Pages.Any(t => t.Title == page.Title))
-            {
-                ModelState.AddModelError("", "The Title is already exits.");
-            }
-            if (db.Pages.Any(t => t.Slug == page.Slug))
-            {
-                ModelState.AddModelError("", "The Slug is already exits.");
-            }
-
+           
             if (ModelState.IsValid)
             {
                 db.Entry(page).State = EntityState.Modified;

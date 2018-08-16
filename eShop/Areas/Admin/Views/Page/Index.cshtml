@@ -10,51 +10,49 @@
 <p>
     @Html.ActionLink("Create Page", "AddPage")
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Title)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Slug)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Body)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Sorting)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.HasSidebar)
-        </th>
-        <th></th>
-    </tr>
-
-    @foreach (var item in Model)
-    {
+<table class="table table-striped table-bordered table-hover ">
+    <thead class="thead-dark">
         <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Title)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Slug)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Body)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Sorting)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.HasSidebar)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "EditPage", new { id = item.Id } , new { @class = "btn btn-outline-primary btn-sm" } )
-                @Html.ActionLink("Details", "PageDetails", new { id = item.Id }, new { @class = "btn btn-outline-info btn-sm" })
-                @Html.ActionLink("Delete", "DeletePage", new { id = item.Id }, new {@class= "delete btn btn-outline-danger btn-sm" })
-            </td>
+            <th scope="col">#</th>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.Slug)
+            </th>
+
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.HasSidebar)
+            </th>
+            <th></th>
         </tr>
-    }
+    </thead>
+    <tbody>
+        @{ int RowNo = 0;}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <th scope="row">@{RowNo++;}@RowNo</th>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Title)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Slug)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.HasSidebar)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "EditPage", new { id = item.Id }, new { @class = "btn btn-outline-primary btn-sm" })
+                    @Html.ActionLink("Details", "PageDetails", new { id = item.Id }, new { @class = "btn btn-outline-info btn-sm" })
+                    @Html.ActionLink("Delete", "DeletePage", new { id = item.Id }, new { @class = "delete btn btn-outline-danger btn-sm" })
+                </td>
+            </tr>
+        }
+    </tbody>
+
+    
 
 </table>
 @section scripts

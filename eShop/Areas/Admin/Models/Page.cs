@@ -5,6 +5,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 using System.Web.ModelBinding;
+using System.Web.Mvc;
 
 namespace eShop.Areas.Admin.Models
 {
@@ -12,14 +13,17 @@ namespace eShop.Areas.Admin.Models
     {
 
         public int Id { get; set; }
+
         [Required]
-        [MaxLength(30)]
-        
+        [StringLength(int.MaxValue, MinimumLength = 3)]
         public string Title { get; set; }
 
         [Required]
         [MaxLength(30)]
         public string Slug { get; set; }
+
+        [AllowHtml]
+        [StringLength(int.MaxValue, MinimumLength =3)]
         public string Body { get; set; }
         public int Sorting { get; set; }
         public bool HasSidebar { get; set; }

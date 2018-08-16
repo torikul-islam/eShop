@@ -64,18 +64,11 @@
 <div>
     @Html.ActionLink("Back to Page", "Index", null, new { @class = "btn btn-outline-dark" })
 </div>
-@*@section scripts{
-        <script>
-            $(function (data) {
-                $(".js-add").click(function () {
-                    if (confirm("Do you want to add page ??"))
-                        return true;
-                    else {
-                        false;
-                    }
-                });
-            });
+@section scripts{
+    <script src="~/Scripts/ckeditor/ckeditor.js"></script>
 
-        </script>
+    <script>
+        CKEDITOR.replace("Body");
+    </script>
 
-    }*@
+}

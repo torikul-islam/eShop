@@ -6,23 +6,23 @@
 }
 <h2>Edit Sidebar</h2>
 @if (@TempData["mess"] != null)
-    {
-<div class="alert alert-success">
-    @TempData["mess"]
-</div>
- }
+{
+    <div class="alert alert-success">
+        @TempData["mess"]
+    </div>
+}
 
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
 
     <div class="form-group">
-        
+
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @Html.HiddenFor(model => model.Id)
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Body, htmlAttributes: new { @class = "control-label col-md-2" })
+            <label class="form-control-lg col-md-2" for="HasSidebar">Sidebar</label>
             <div class="col-md-10">
                 @Html.TextAreaFor(model => model.Body, new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.Body, "", new { @class = "text-danger" })
@@ -40,3 +40,11 @@
 <div>
     @Html.ActionLink("Back to List", "Index")
 </div>
+@section scripts{
+    <script src="~/Scripts/ckeditor/ckeditor.js"></script>
+
+    <script>
+        CKEDITOR.replace("Body");
+    </script>
+
+}
