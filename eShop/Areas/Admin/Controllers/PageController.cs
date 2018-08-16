@@ -118,24 +118,25 @@ namespace eShop.Areas.Admin.Controllers
             
         }
 
-        // POST: Admin/Page/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
+        // Get: Admin/Page/EditSlidebar/1
+        [HttpGet]
+        public ActionResult EditSidebar(int? id)
         {
-            Page page = db.Pages.Find(id);
-            db.Pages.Remove(page);
-            db.SaveChanges();
-            return RedirectToAction("Index");
+            var sidebarWithId = db.Sidebars.Find(id);
+            return View(sidebarWithId);
         }
 
-        protected override void Dispose(bool disposing)
+        // Get: Admin/Page/EditSlidebar/1
+        [HttpPost]
+        public ActionResult EditSidebar(Sidebar sidebar)
         {
-            if (disposing)
+            if (ModelState.IsValid)
             {
-                db.Dispose();
+                db.Sidebars.Add(sidebar);
+                db.SaveChanges();
             }
-            base.Dispose(disposing);
+            TempData["mess"] = "You have edit sidebar.";
+            return RedirectToAction("EditSidebar");
         }
     }
 }
