@@ -71,6 +71,11 @@ else
             $(this).attr("readonly", false);
         });
 
+        $("table#pages input.text-box").keyup(function (e) {
+            if (e.keyCode == 13) {
+                $(this).blur();
+            }
+        });
 
 
 
