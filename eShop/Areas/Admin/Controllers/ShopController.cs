@@ -90,31 +90,17 @@ namespace eShop.Areas.Admin.Controllers
             return View(catagory);
         }
 
-        // GET: Admin/Shop/Delete/5
-        public ActionResult Delete(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Catagory catagory = db.Catagories.Find(id);
-            if (catagory == null)
-            {
-                return HttpNotFound();
-            }
-            return View(catagory);
-        }
+        
 
         // POST: Admin/Shop/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
+        public ActionResult DeleteCatagory(int id)
         {
             Catagory catagory = db.Catagories.Find(id);
             db.Catagories.Remove(catagory);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("Catagory");
         }
+        
 
         protected override void Dispose(bool disposing)
         {
