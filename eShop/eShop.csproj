@@ -253,6 +253,7 @@
     <Content Include="Content\bootstrap-reboot.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\img\ajax-loader.gif" />
     <Content Include="favicon.ico" />
     <Content Include="fileman\css\images\animated-overlay.gif" />
     <Content Include="fileman\css\images\ui-bg_flat_0_aaaaaa_40x100.png" />
@@ -539,7 +540,6 @@
     <Content Include="Areas\Admin\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Admin\Views\Dashboard\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\Pages\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Page\AddPage.cshtml" />
     <Content Include="Areas\Admin\Views\Page\PageDetails.cshtml" />
     <Content Include="Areas\Admin\Views\Page\EditPage.cshtml" />
@@ -935,6 +935,11 @@
     <Content Include="fileman\lang\sk.json" />
     <Content Include="fileman\lang\tr.json" />
     <Content Include="fileman\web.config" />
+    <Content Include="Areas\Admin\Views\Shop\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Shop\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Shop\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Shop\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Shop\Catagory.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -980,7 +985,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Views\Catagorie\" />
-    <Folder Include="Areas\Admin\Views\Shop\" />
     <Folder Include="Controllers\" />
     <Folder Include="fileman\aspnet_client\system_web\2_0_50727\" />
     <Folder Include="fileman\aspnet_client\system_web\4_0_30319\" />

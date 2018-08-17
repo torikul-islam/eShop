@@ -8,6 +8,16 @@ namespace eShop.Areas.Admin.Models
 {
     public class Catagory
     {
+        private Catagory x;
+        public Catagory()
+        {
+
+        }
+        public Catagory(Catagory x)
+        {
+            this.x = x;
+        }
+
         [Key]
         public int Id { get; set; }
         public string Name { get; set; }
