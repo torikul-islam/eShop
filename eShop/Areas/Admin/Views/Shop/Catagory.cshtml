@@ -34,8 +34,9 @@ else
         <tbody>
             @foreach (var item in Model)
             {
-                <tr>
+                <tr id="id_@item.Id">
                     <td>
+                        <div class="ajaxdivtd"></div>
                         @Html.EditorFor(model => item.Name, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
                     </td>
                     <td>
@@ -49,8 +50,10 @@ else
 }
 
 @section scripts{
-
+    <script src="http://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
     <script>
+
+    // Confirm Catagory Deletion
         $(function () {
             $(".delete").click(function () {
                 if (confirm("Are you sure want to delete ?"))
@@ -60,4 +63,17 @@ else
                 }
             });
         });
+
+        // Rename catagory
+        var originamTextBoxValue;
+        $("table#pages input.text-box").dblclick(function () {
+            originamTextBoxValue = $(this).val();
+            $(this).attr("readonly", false);
+        });
+
+
+
+
+
+
     </script>}
